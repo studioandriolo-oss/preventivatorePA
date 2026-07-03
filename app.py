@@ -1,8 +1,16 @@
 import streamlit as st
 import random
 import datetime
+import base64
 
-# 1. Definisci questa funzione in alto (o in un file separato)
+# --- IMPOSTAZIONI PAGINA (Deve essere SEMPRE il primo comando) ---
+st.set_page_config(
+    page_title="Stima Quadro Economico Rilievi PA", 
+    page_icon="🏛️", 
+    layout="centered"
+)
+
+# 1. Definisci questa funzione in alto
 def imposta_sfondo_app(percorso_immagine):
     """
     Legge un'immagine locale e la imposta come sfondo dell'app Streamlit,
@@ -34,17 +42,8 @@ def imposta_sfondo_app(percorso_immagine):
     except FileNotFoundError:
         st.error(f"Errore: L'immagine '{percorso_immagine}' non è stata trovata.")
 
-# --- INIZIO DELLA TUA APP PRINCIPALE ---
-
-# 2. Richiami lo sfondo con un solo, pulitissimo comando Python
+# 2. Richiami lo sfondo
 imposta_sfondo_app("sfondo.jpg")
-
-# --- IMPOSTAZIONI PAGINA (Stile Istituzionale) ---
-st.set_page_config(
-    page_title="Stima Quadro Economico Rilievi PA", 
-    page_icon="🏛️", 
-    layout="centered"
-)
 
 # --- STILI CSS PERSONALIZZATI ---
 st.markdown("""
@@ -157,6 +156,9 @@ totale_lordo = subtotale + iva
 # --- SEZIONE 2: QUADRO ECONOMICO ---
 st.markdown('<h3 class="section-title">2. Quadro Economico Preliminare</h3>', unsafe_allow_html=True)
 
+# Apro il div del box grigio
+st.markdown('<div class="result-box">', unsafe_allow_html=True)
+
 st.markdown(f"**Quota Acquisizione Dato in Sito (SLAM):** {quota_acquisizione:,.2f} €")
 st.markdown(f"**Quota Post-Produzione ed Elaborazione:** {quota_elaborazione:,.2f} €")
 st.markdown(f"**Spese Fisse / Tecniche:** {spese_fisse:,.2f} €")
@@ -165,6 +167,8 @@ st.markdown(f"#### **TOTALE IMPONIBILE (Base per Affidamento): {totale_imponibil
 st.markdown(f"Contributo Integrativo Inarcassa (4%): {cassa:,.2f} €")
 st.markdown(f"IVA (22%): {iva:,.2f} €")
 st.markdown(f"### **TOTALE LORDO COMPLESSIVO: {totale_lordo:,.2f} €**")
+
+# Chiudo il div del box grigio
 st.markdown('</div>', unsafe_allow_html=True)
 
 # Avviso normativo
