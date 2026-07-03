@@ -69,7 +69,7 @@ livello_options = [
 ]
 livello = st.selectbox("Livello di Restituzione Richiesto:", livello_options)
 
-spese_fisse = st.number_input(
+spspese_fisse = st.number_input(
     "Spese Fisse Istruttoria:", 
      value=300.00, format="%.2f", step=None, disabled=True, help="Quota fissa non modificabile."
 )
