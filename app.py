@@ -69,9 +69,15 @@ livello_options = [
 ]
 livello = st.selectbox("Livello di Restituzione Richiesto:", livello_options)
 
-spspese_fisse = st.number_input(
-    "Spese Fisse Istruttoria:", 
-     value=300.00, format="%.2f", step=None, disabled=True, help="Quota fissa non modificabile."
+# Imposto la variabile fissa per i calcoli matematici
+spese_fisse = 300.00
+
+# Lo mostro a schermo come semplice testo bloccato (senza pulsanti)
+st.text_input(
+    "Spese Fisse Istruttoria (Oneri sicurezza, MEPA, Pratiche):", 
+    value="300,00 €", 
+    disabled=True, 
+    help="Quota fissa non modificabile."
 )
 
 st.divider()
