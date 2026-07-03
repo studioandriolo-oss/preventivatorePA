@@ -40,6 +40,34 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
+# --- BACKGROUND IMAGE E OVERLAY ---
+st.markdown("""
+    <style>
+    /* Imposta l'immagine di sfondo per l'intera app */
+    .stApp {
+        background-image: url("https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1920&auto=format&fit=crop"); 
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+    
+    /* Crea l'effetto "foglio" semitrasparente dietro i contenuti per garantire la leggibilità */
+    .block-container {
+        background-color: rgba(255, 255, 255, 0.92); 
+        padding: 3rem;
+        border-radius: 15px;
+        box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    /* Rende trasparente la barra in alto di default di Streamlit */
+    .stApp > header {
+        background-color: transparent;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 # --- INTESTAZIONE ---
 st.markdown('<div class="main-header">CALCOLATORE PARCELLE PA</div>', unsafe_allow_html=True)
 st.markdown('<div class="sub-header">Stima Parametrica per Affidamento Rilievi 3D e Restituzione Architettonica</div>', unsafe_allow_html=True)
@@ -136,7 +164,7 @@ if totale_imponibile < 140000:
 else:
     st.warning("⚠️ L'importo stimato supera la soglia per l'affidamento diretto. Richiede procedura negoziata o bando di gara.")
 
-st.caption("Il presente calcolo è da intendersi come stima preliminare e non costituisce offerta formale. Operatore regolarmente iscritto al portale MEPA.")
+st.caption("Il presente calcolo è da intendersi come stima preliminare e non costituisce offerta formale.")
 
 st.divider()
 
