@@ -120,7 +120,6 @@ totale_lordo = subtotale + iva
 # --- SEZIONE 2: QUADRO ECONOMICO ---
 st.markdown('<h3 class="section-title">2. Quadro Economico Preliminare</h3>', unsafe_allow_html=True)
 
-st.markdown('<div class="result-box">', unsafe_allow_html=True)
 st.markdown(f"**Quota Acquisizione Dato in Sito (SLAM):** {quota_acquisizione:,.2f} €")
 st.markdown(f"**Quota Post-Produzione ed Elaborazione:** {quota_elaborazione:,.2f} €")
 st.markdown(f"**Spese Fisse / Tecniche:** {spese_fisse:,.2f} €")
