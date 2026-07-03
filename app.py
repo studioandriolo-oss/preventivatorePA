@@ -45,7 +45,7 @@ st.markdown("""
     <style>
     /* Imposta l'immagine di sfondo per l'intera app */
     .stApp {
-        background-image: url("https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1920&auto=format&fit=crop"); 
+        background-image: st.image("sfondo.jpg"); 
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
