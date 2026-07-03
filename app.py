@@ -43,7 +43,8 @@ def imposta_sfondo_app(percorso_immagine):
         st.error(f"Errore: L'immagine '{percorso_immagine}' non è stata trovata.")
 
 # 2. Richiami lo sfondo
-imposta_sfondo_app("logo.png")
+# inserire tra le virgolette tra parentesi il nome del file immagine con il suffisso di formato
+imposta_sfondo_app("")
 
 # --- STILI CSS PERSONALIZZATI ---
 st.markdown("""
