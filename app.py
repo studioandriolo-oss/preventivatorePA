@@ -44,7 +44,7 @@ def imposta_sfondo_app(percorso_immagine):
 
 # 2. Richiami lo sfondo
 # inserire tra le virgolette tra parentesi il nome del file immagine con il suffisso di formato
-imposta_sfondo_app("")
+imposta_sfondo_app("") 
 
 # --- STILI CSS PERSONALIZZATI ---
 st.markdown("""
