@@ -2,6 +2,43 @@ import streamlit as st
 import random
 import datetime
 
+# 1. Definisci questa funzione in alto (o in un file separato)
+def imposta_sfondo_app(percorso_immagine):
+    """
+    Legge un'immagine locale e la imposta come sfondo dell'app Streamlit,
+    creando un riquadro semitrasparente per i contenuti.
+    """
+    try:
+        with open(percorso_immagine, 'rb') as f:
+            data = f.read()
+        img_base64 = base64.b64encode(data).decode()
+        
+        css_sfondo = f"""
+        <style>
+        .stApp {{
+            background-image: url("data:image/jpeg;base64,{img_base64}");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }}
+        .block-container {{
+            background-color: rgba(255, 255, 255, 0.92); 
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
+        }}
+        </style>
+        """
+        st.markdown(css_sfondo, unsafe_allow_html=True)
+        
+    except FileNotFoundError:
+        st.error(f"Errore: L'immagine '{percorso_immagine}' non è stata trovata.")
+
+# --- INIZIO DELLA TUA APP PRINCIPALE ---
+
+# 2. Richiami lo sfondo con un solo, pulitissimo comando Python
+imposta_sfondo_app("sfondo.jpg")
+
 # --- IMPOSTAZIONI PAGINA (Stile Istituzionale) ---
 st.set_page_config(
     page_title="Stima Quadro Economico Rilievi PA", 
@@ -36,34 +73,6 @@ st.markdown("""
         border-left: 5px solid #1a252f;
         padding: 20px;
         border-radius: 5px;
-    }
-    </style>
-""", unsafe_allow_html=True)
-
-# --- BACKGROUND IMAGE E OVERLAY ---
-st.markdown("""
-    <style>
-    /* Imposta l'immagine di sfondo per l'intera app */
-    .stApp {
-        background-image: st.image("sfondo.jpg"); 
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-    }
-    
-    /* Crea l'effetto "foglio" semitrasparente dietro i contenuti per garantire la leggibilità */
-    .block-container {
-        background-color: rgba(255, 255, 255, 0.92); 
-        padding: 3rem;
-        border-radius: 15px;
-        box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-    }
-    
-    /* Rende trasparente la barra in alto di default di Streamlit */
-    .stApp > header {
-        background-color: transparent;
     }
     </style>
 """, unsafe_allow_html=True)
